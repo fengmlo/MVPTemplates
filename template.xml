@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="1"
+    name="MVP"
+    minApi="9"
+    minBuildApi="15"
+    description="Create all MVP classes, include Component, Activity, Fragment, Presenter, Model, Module, Contract">
+
+    <category value="Activity" />
+    <formfactor value="Mobile" />
+
+    <parameter
+        id="pageName"
+        name="Page Name"
+        type="string"
+        constraints="unique|nonempty"
+        default="Main"
+        help="Page name. For example, enter Main, will generate MainActivity, MainPresenter, etc." />
+
+    <parameter
+        id="packageName"
+        name="Root Package Name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp"
+        help="The domain to use in the Instant App route for these MVP classes"/>
+
+    <parameter
+        id="needActivity"
+        name="Generate Activity"
+        type="boolean"
+        default="true"
+        help="If true, an Activity class will be generated" />
+
+    <parameter
+        id="activityLayoutName"
+        name="Activity Layout Name"
+        type="string"
+        constraints="layout|nonempty"
+        suggest="${activityToLayout(pageName)}"
+        default="activity_main"
+        visibility="needActivity"
+        help="The name of the layout to create for the activity" />
+
+    <parameter
+        id="generateActivityLayout"
+        name="Generate Activity Layout"
+        type="boolean"
+        default="true"
+        visibility="needActivity"
+        help="If true, an activity layout file will be generated" />
+
+    <parameter
+        id="ativityPackageName"
+        name="Ativity Package Name"
+        type="string"
+        constraints="package"
+        suggest="${packageName}.mvp.ui.activity"
+        visibility="needActivity"
+        help="The package of Activity"/>
+
+    <parameter
+        id="needFragment"
+        name="Generate Fragment"
+        type="boolean"
+        default="false"
+        help="If true, a Fragment class will be generated" /> 
+
+    <parameter
+        id="fragmentLayoutName"
+        name="Fragment Layout Name"
+        type="string"
+        constraints="layout|nonempty"
+        suggest="fragment_${classToResource(pageName)}"
+        default="fragment_main"
+        visibility="needFragment"
+        help="The name of the layout to create for the Fragment" /> 
+
+    <parameter
+        id="generateFragmentLayout"
+        name="Generate Fragment Layout"
+        type="boolean"
+        default="true"
+        visibility="needFragment"
+        help="If true, a fragment layout file will be generated" />
+
+    <parameter
+        id="fragmentPackageName"
+        name="Fragment Package Name"
+        type="string"
+        constraints="package"
+        suggest="${packageName}.mvp.ui.fragment"
+        visibility="needFragment"
+        help="The package of Fragment"/>  
+
+    <parameter
+        id="needContract"
+        name="Generate Contract"
+        type="boolean"
+        default="true"
+        help="If true, a Contract class will be generated" />  
+
+    <parameter
+        id="contractPackageName"
+        name="Contract Package Name"
+        type="string"
+        constraints="package"
+        suggest="${packageName}.mvp.contract" 
+        visibility="needContract"
+        help="The package of Contract"/>  
+
+    <parameter
+        id="needPresenter"
+        name="Generate Presenter"
+        type="boolean"
+        default="true"
+        help="If true, a Presenter class will be generated" />  
+
+    <parameter
+        id="presenterPackageName"
+        name="Presenter Package Name"
+        type="string"
+        constraints="package"
+        suggest="${packageName}.mvp.presenter"
+        visibility="needPresenter"
+        help="The package of Presenter"/>  
+
+    <parameter
+        id="needModel"
+        name="Generate Model"
+        type="boolean"
+        default="true"
+        help="If true, a Model class will be generated" /> 
+
+    <parameter
+        id="modelPackageName"
+        name="Model Package Name"
+        type="string"
+        constraints="package"
+        suggest="${packageName}.mvp.model"
+        visibility="needModel"
+        help="The package of Model"/>  
+
+    <parameter
+        id="needDagger"
+        name="Generate Dagger (Module And Component)"
+        type="boolean"
+        default="true"
+        help="If true, Dagger Component will be generated" />  
+
+    <parameter
+        id="componentPackageName"
+        name="Component Package Name"
+        type="string"
+        constraints="package"
+        suggest="${packageName}.di.component"
+        visibility="needDagger"
+        help="The package of Component"/>  
+
+   <parameter
+        id="modulePackageName"
+        name="Module Package Name"
+        type="string"
+        constraints="package"
+        suggest="${packageName}.di.module"
+        visibility="needDagger"
+        help="The package of Module"/>  
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+</template>
