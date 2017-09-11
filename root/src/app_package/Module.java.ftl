@@ -1,4 +1,4 @@
-package ${moudlePackageName};
+package ${modulePackageName};
 
 import com.jess.arms.di.scope.ActivityScope;
 

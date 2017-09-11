@@ -9,7 +9,7 @@ import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 
 import ${componentPackageName}.Dagger${pageName}Component;
-import ${moudlePackageName}.${pageName}Module;
+import ${modulePackageName}.${pageName}Module;
 import ${contractPackageName}.${pageName}Contract;
 import ${presenterPackageName}.${pageName}Presenter;
 

@@ -4,7 +4,7 @@ import com.jess.arms.di.scope.ActivityScope;
 import dagger.Component;
 import com.jess.arms.di.component.AppComponent;
 
-import ${moudlePackageName}.${pageName}Module;
+import ${modulePackageName}.${pageName}Module;
 
 <#if needActivity && needFragment>
 import ${ativityPackageName}.${pageName}Activity;
