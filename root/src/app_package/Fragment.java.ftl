@@ -7,10 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 
+import ${packageName}.app.base.BaseFragment;
 import ${componentPackageName}.Dagger${pageName}Component;
 import ${modulePackageName}.${pageName}Module;
 import ${contractPackageName}.${pageName}Contract;
