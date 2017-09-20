@@ -1,11 +1,6 @@
 package ${componentPackageName};
 
-import com.jess.arms.di.scope.ActivityScope;
-import dagger.Component;
-import com.jess.arms.di.component.AppComponent;
-
 import ${modulePackageName}.${pageName}Module;
-
 <#if needActivity && needFragment>
 import ${ativityPackageName}.${pageName}Activity;
 import ${fragmentPackageName}.${pageName}Fragment;
@@ -14,8 +9,15 @@ import ${ativityPackageName}.${pageName}Activity;
 <#elseif needFragment>
 import ${fragmentPackageName}.${pageName}Fragment;
 </#if>
+import com.jess.arms.di.component.AppComponent;
+<#if needActivity>
+import com.jess.arms.di.scope.ActivityScope;
+<#elseif needFragment>
+import com.jess.arms.di.scope.FragmentScope;
+</#if>
+import dagger.Component;
 
-@ActivityScope
+<#if needActivity>@ActivityScope<#elseif needFragment>@FragmentScope</#if>
 @Component(modules = ${pageName}Module.class,dependencies = AppComponent.class)
 public interface ${pageName}Component {
   <#if needActivity && needFragment>

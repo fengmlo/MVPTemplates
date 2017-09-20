@@ -3,7 +3,11 @@ package ${presenterPackageName};
 import android.app.Application;
 
 import com.jess.arms.integration.AppManager;
+<#if needActivity>
 import com.jess.arms.di.scope.ActivityScope;
+<#elseif needFragment>
+import com.jess.arms.di.scope.FragmentScope;
+</#if>
 import com.jess.arms.mvp.BasePresenter;
 import com.jess.arms.http.imageloader.ImageLoader;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
@@ -11,7 +15,7 @@ import javax.inject.Inject;
 
 import ${contractPackageName}.${pageName}Contract;
 
-@ActivityScope
+<#if needActivity>@ActivityScope<#elseif needFragment>@FragmentScope</#if>
 public class ${pageName}Presenter extends BasePresenter<${pageName}Contract.Model, ${pageName}Contract.View> {
     private RxErrorHandler mErrorHandler;
     private Application mApplication;

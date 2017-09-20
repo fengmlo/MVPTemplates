@@ -7,7 +7,7 @@
     minBuildApi="15"
     description="Create all MVP classes, include Component, Activity, Fragment, Presenter, Model, Module, Contract">
 
-    <category value="Activity" />
+    <category value="Custom" />
     <formfactor value="Mobile" />
 
     <parameter
@@ -28,7 +28,7 @@
 
     <parameter
         id="needActivity"
-        name="Generate Activity"
+        name="Generate Activity (Don't generate fragment meantime)"
         type="boolean"
         default="true"
         help="If true, an Activity class will be generated" />
@@ -53,7 +53,7 @@
 
     <parameter
         id="ativityPackageName"
-        name="Ativity Package Name"
+        name="Activity Package Name"
         type="string"
         constraints="package"
         suggest="${packageName}.mvp.ui.activity"
@@ -62,7 +62,7 @@
 
     <parameter
         id="needFragment"
-        name="Generate Fragment"
+        name="Generate Fragment (Don't generate activity meantime)"
         type="boolean"
         default="false"
         help="If true, a Fragment class will be generated" /> 

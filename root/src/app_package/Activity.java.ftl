@@ -18,6 +18,10 @@ import ${packageName}.R;
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
 public class ${pageName}Activity extends BaseActivity<${pageName}Presenter> implements ${pageName}Contract.View {
+    // 当需要在Activity中通过@Inject注入Fragment时，需要将对应的Fragment在ActivityModule中@Provides
+    // @Inject
+    // Fragment fragment;
+
     @Override
     public void setupActivityComponent(AppComponent appComponent) {
         Dagger${pageName}Component //if can't find this class, try compile this project
